@@ -13,11 +13,12 @@
 ## Class 구조
 1. Application : main 메서드(하위 클래스 조합)
 2. InputView : cars 메서드(public), moveCount 메서드(public)
-3. Validation : carValidate 메서드(public, static) , countValidate 메서드(public, static)
-4. MoveStrategy : isMovable 메서드(public)
-5. RacingGame : race 메서드(public)
-6. Winners : win 메서드(public)
-7. OutputView : progressView 메서드(public), resultView 메서드(public)
+3. CarValidator : carValidate 메서드(public, static)
+4. CountValidator : countValidate 메서드(public, static)
+5. MoveStrategy : isMovable 메서드(public)
+6. RacingGame : race 메서드(public)
+7. Winners : win 메서드(public)
+8. OutputView : progressView 메서드(public), resultView 메서드(public)
 
 ## 기능 구현 목록
 1. main : 프로그램에서 사용되는 클래스들을 조합하여 선언
