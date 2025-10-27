@@ -24,26 +24,24 @@ public class RacingGame {
         }
         outputView.raceStart();
 
-        for(int i = 0 ; i < count ; i++){
+        for(int i = 0; i < count; i++){
             for(String car : carList){
                 int isMoved = move();
                 sheet.put(car, sheet.get(car) + isMoved);
             }
-
             outputView.progressView(sheet);
         }
         outputView.winnerView(sheet);
-
     }
 
     private int move(){
         int isMoved;
+
         if(moveStrategy.isMovable()){
             isMoved = 1;
-        }else {
+        } else {
             isMoved = 0;
         }
-
         return isMoved;
     }
 }

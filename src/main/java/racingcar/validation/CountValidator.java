@@ -13,7 +13,7 @@ public class CountValidator {
                 throw new IllegalArgumentException("시도 횟수는 음수이거나 0회일 수 없습니다.");
             }
             return count;
-        }catch (Exception e){
+        } catch (Exception e){
             throw new IllegalArgumentException("시도 횟수는 숫자로만 구성될 수 있습니다.");
         }
     }
