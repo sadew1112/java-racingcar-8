@@ -12,14 +12,55 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
+    @Override
+    public void runMain() {
+        Application.main(new String[]{});
+    }
+
     @Test
-    void 기능_테스트() {
+    void 자동차_통합_테스트1() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
                 assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
             },
             MOVING_FORWARD, STOP
+        );
+    }
+
+    @Test
+    void 자동차_통합_테스트2() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "2");
+                    assertThat(output().trim()).endsWith("최종 우승자 : pobi");
+                },
+                MOVING_FORWARD, STOP, STOP,
+                MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
+    }
+    @Test
+    void 공동_우승자_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,jun", "3");
+                    assertThat(output().trim()).endsWith("최종 우승자 : pobi, jun");
+                },
+                MOVING_FORWARD, STOP,
+                STOP, MOVING_FORWARD,
+                MOVING_FORWARD, MOVING_FORWARD
+        );
+    }
+    @Test
+    void 모두_멈춤_테스트() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "3");
+                    assertThat(output().trim()).endsWith("최종 우승자 : pobi, woni, jun");
+                },
+                STOP, STOP,
+                STOP, STOP,
+                STOP, STOP
         );
     }
 
@@ -31,8 +72,4 @@ class ApplicationTest extends NsTest {
         );
     }
 
-    @Override
-    public void runMain() {
-        Application.main(new String[]{});
-    }
 }
