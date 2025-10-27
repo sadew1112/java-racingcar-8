@@ -13,6 +13,7 @@ public class OutputView {
         for(Map.Entry<String,Integer> entry : sheet.entrySet()){
             System.out.println(entry.getKey() + " : " + "-".repeat(entry.getValue()));
         }
+        System.out.println();
     }
     public void winnerView(Map<String, Integer> sheet) {
 
